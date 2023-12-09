@@ -30,3 +30,5 @@ coverage
 *.sw?
 /admin-template-metronic/yarn.lock
 /admin-template-metronic/package-lock.json
+/admin-template-metronic/obj
+/admin-template-metronic/package-lock.json
