@@ -28,3 +28,4 @@ coverage
 *.ntvs*
 *.njsproj
 *.sw?
+/admin-template-metronic/yarn.lock
