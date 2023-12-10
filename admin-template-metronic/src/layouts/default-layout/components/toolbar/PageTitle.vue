@@ -62,16 +62,6 @@ export default defineComponent({
   name: "layout-page-title",
   components: {},
   setup() {
-    const route = useRoute();
-
-    const pageTitle = computed(() => {
-      return route.meta.pageTitle;
-    });
-
-    const breadcrumbs = computed(() => {
-      return route.meta.breadcrumbs;
-    });
-
     const { t, te } = useI18n();
     const translate = (text: string) => {
       if (te(text)) {
@@ -80,6 +70,18 @@ export default defineComponent({
         return text;
       }
     };
+    const route = useRoute();
+
+    const pageTitle = computed(() => {
+      const title = route.meta.pageTitle as string;
+      document.title = `${translate(title)} - ${import.meta.env.VITE_APP_NAME}`;
+      return title;
+    });
+
+    const breadcrumbs = computed(() => {
+      return route.meta.breadcrumbs;
+    });
+
     return {
       pageTitle,
       breadcrumbs,

@@ -7975,12 +7975,12 @@ body.swal2-toast-shown .swal2-container.swal2-bottom-end, body.swal2-toast-shown
 }
 
 @font-face {
-  font-family: "keenicons-duotone";
-  src: url("fonts/keenicons/keenicons-duotone.eot?eut7fk");
-  src: url("fonts/keenicons/keenicons-duotone.eot?eut7fk#iefix") format("embedded-opentype"), url("fonts/keenicons/keenicons-duotone.ttf?eut7fk") format("truetype"), url("fonts/keenicons/keenicons-duotone.woff?eut7fk") format("woff"), url("fonts/keenicons/keenicons-duotone.svg?eut7fk#keenicons-duotone") format("svg");
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
+    font-family: "keenicons-duotone";
+    src: url("/src/assets/keenicons/solid/fonts/keenicons-solid.eot?eut7fk");
+    src: url("/src/assets/keenicons/solid/fonts/keenicons-solid.eot?eut7fk#iefix") format("embedded-opentype"), url("/src/assets/keenicons/solid/fonts/keenicons-solid.ttf?eut7fk") format("truetype"), url("/src/assets/keenicons/solid/fonts/keenicons-solid.woff?eut7fk") format("woff"), url("/src/assets/keenicons/solid/fonts/keenicons-solid.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
 }
 .ki-duotone {
   /* use !important to prevent issues with browser extensions that change fonts */
@@ -31074,7 +31074,7 @@ readers do not read off random characters that represent icons */
 @font-face {
   font-display: block;
   font-family: "bootstrap-icons";
-  src: url("fonts/bootstrap-icons/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2") format("woff2"), url("fonts/bootstrap-icons/bootstrap-icons.woff?1fa40e8900654d2863d011707b9fb6f2") format("woff");
+  src: url("/public/fonts/bootstrap-icons/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2") format("woff2"), url("/public/fonts/bootstrap-icons/bootstrap-icons.woff?1fa40e8900654d2863d011707b9fb6f2") format("woff");
 }
 .bi::before,
 [class^=bi-]::before,

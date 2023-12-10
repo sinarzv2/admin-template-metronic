@@ -8,12 +8,27 @@ const MainMenuConfig: Array<MenuItem> = [
         route: "/dashboard",
         keenthemesIcon: "element-11",
         bootstrapIcon: "bi-app-indicator"
-      },
+      }
+    ]
+  },
+  {
+    heading: "recruitmentSystem",
+    route: "/recruitmentSystem",
+    pages: [
       {
-        heading: "users",
-        route: "/users",
-        keenthemesIcon: "element-11",
-        bootstrapIcon: "bi-app-indicator"
+        sectionTitle: "users",
+        route: "/user",
+        keenthemesIcon: "profile-circle",
+        sub: [
+          {
+            heading: "createUser",
+            route: "/recruitmentSystem/user/create-user"
+          },
+          {
+            heading: "userList",
+            route: "/recruitmentSystem/user/user-list"
+          }
+        ]
       }
     ]
   }

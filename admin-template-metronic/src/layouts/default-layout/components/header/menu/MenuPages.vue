@@ -16,7 +16,7 @@
     </template>
     <div
       v-if="item.heading"
-      data-kt-menu-trigger="click"
+      data-kt-menu-trigger="hover"
       data-kt-menu-placement="bottom-start"
       class="menu-item menu-lg-down-accordion me-lg-1"
     >

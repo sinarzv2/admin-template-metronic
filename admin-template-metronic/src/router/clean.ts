@@ -21,12 +21,21 @@ const routes: Array<RouteRecordRaw> = [
         }
       },
       {
-        path: "/users",
-        name: "users",
-        component: () => import("@/views/Users.vue"),
+          path: "/recruitmentSystem/user/create-user",
+        name: "createUser",
+        component: () => import("@/views/user/CreateUser.vue"),
         meta: {
-          pageTitle: "users",
-          breadcrumbs: ["users"]
+          pageTitle: "createUser",
+          breadcrumbs: ["users", "createUser"]
+        }
+      },
+      {
+          path: "/recruitmentSystem/user/user-list",
+        name: "userList",
+        component: () => import("@/views/user/UserList.vue"),
+        meta: {
+          pageTitle: "userList",
+          breadcrumbs: ["users", "userList"]
         }
       }
     ]
@@ -116,7 +125,7 @@ router.beforeEach((to, from, next) => {
   const configStore = useConfigStore();
 
   // current page view title
-  document.title = `${to.meta.pageTitle} - ${import.meta.env.VITE_APP_NAME}`;
+  //document.title = `${to.meta.pageTitle} - ${import.meta.env.VITE_APP_NAME}`;
 
   // reset config to initial state
   configStore.resetLayoutConfig();

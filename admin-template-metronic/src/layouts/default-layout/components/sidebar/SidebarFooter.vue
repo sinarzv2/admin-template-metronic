@@ -9,7 +9,7 @@
       data-bs-dismiss-="click"
       title="200+ in-house components and 3rd-party plugins"
     >
-      <span class="btn-label">{{ translate("Guide") }}</span>
+      <span class="btn-label">{{ translate("guide") }}</span>
       <KTIcon icon-name="document" icon-class="btn-icon fs-2 m-0" />
     </a>
   </div>

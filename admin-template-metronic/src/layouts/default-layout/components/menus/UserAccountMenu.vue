@@ -32,23 +32,23 @@
 
     <!--begin::Menu item-->
     <div class="menu-item px-5">
-      <router-link to="/pages/profile/overview" class="menu-link px-5"> My Profile </router-link>
+      <router-link to="/pages/profile/overview" class="menu-link px-5"> {{translate("myProfile")}} </router-link>
     </div>
     <!--end::Menu item-->
 
     <!--begin::Menu item-->
-    <div class="menu-item px-5">
+    <!--<div class="menu-item px-5">
       <router-link to="/pages/profile/overview" class="menu-link px-5">
         <span class="menu-text">My Projects</span>
         <span class="menu-badge">
           <span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span>
         </span>
       </router-link>
-    </div>
+    </div>-->
     <!--end::Menu item-->
 
     <!--begin::Menu item-->
-    <div
+    <!--<div
       class="menu-item px-5"
       data-kt-menu-trigger="hover"
       data-kt-menu-placement="left-start"
@@ -57,30 +57,30 @@
       <router-link to="/pages/profile/overview" class="menu-link px-5">
         <span class="menu-title">My Subscription</span>
         <span class="menu-arrow"></span>
-      </router-link>
+      </router-link>-->
 
       <!--begin::Menu sub-->
-      <div class="menu-sub menu-sub-dropdown w-175px py-4">
+      <!--<div class="menu-sub menu-sub-dropdown w-175px py-4">-->
         <!--begin::Menu item-->
-        <div class="menu-item px-3">
+        <!--<div class="menu-item px-3">
           <router-link to="/pages/profile/overview" class="menu-link px-5"> Referrals </router-link>
-        </div>
+        </div>-->
         <!--end::Menu item-->
 
         <!--begin::Menu item-->
-        <div class="menu-item px-3">
+        <!--<div class="menu-item px-3">
           <router-link to="/pages/profile/overview" class="menu-link px-5"> Billing </router-link>
-        </div>
+        </div>-->
         <!--end::Menu item-->
 
         <!--begin::Menu item-->
-        <div class="menu-item px-3">
+        <!--<div class="menu-item px-3">
           <router-link to="/pages/profile/overview" class="menu-link px-5"> Payments </router-link>
-        </div>
+        </div>-->
         <!--end::Menu item-->
 
         <!--begin::Menu item-->
-        <div class="menu-item px-3">
+        <!--<div class="menu-item px-3">
           <router-link to="/pages/profile/overview" class="menu-link d-flex flex-stack px-5">
             Statements
 
@@ -90,15 +90,15 @@
               title="View your statements"
             ></i>
           </router-link>
-        </div>
+        </div>-->
         <!--end::Menu item-->
 
         <!--begin::Menu separator-->
-        <div class="separator my-2"></div>
+        <!--<div class="separator my-2"></div>-->
         <!--end::Menu separator-->
 
         <!--begin::Menu item-->
-        <div class="menu-item px-3">
+        <!--<div class="menu-item px-3">
           <div class="menu-content px-3">
             <label class="form-check form-switch form-check-custom form-check-solid">
               <input
@@ -111,17 +111,17 @@
               <span class="form-check-label text-muted fs-7"> Notifications </span>
             </label>
           </div>
-        </div>
+        </div>-->
         <!--end::Menu item-->
-      </div>
+      <!--</div>-->
       <!--end::Menu sub-->
-    </div>
+    <!--</div>-->
     <!--end::Menu item-->
 
     <!--begin::Menu item-->
-    <div class="menu-item px-5">
+    <!--<div class="menu-item px-5">
       <router-link to="/pages/profile/overview" class="menu-link px-5"> My Statements </router-link>
-    </div>
+    </div>-->
     <!--end::Menu item-->
 
     <!--begin::Menu separator-->
@@ -137,7 +137,7 @@
     >
       <router-link to="/pages/profile/overview" class="menu-link px-5">
         <span class="menu-title position-relative">
-          Language
+          {{translate("language")}}
           <span
             class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0"
           >
@@ -193,17 +193,11 @@
     </div>
     <!--end::Menu item-->
 
-    <!--begin::Menu item-->
-    <div class="menu-item px-5 my-1">
-      <router-link to="/pages/profile/overview" class="menu-link px-5">
-        Account Settings
-      </router-link>
-    </div>
-    <!--end::Menu item-->
+
 
     <!--begin::Menu item-->
     <div class="menu-item px-5">
-      <a @click="signOut()" class="menu-link px-5"> Sign Out </a>
+      <a @click="signOut()" class="menu-link px-5"> {{translate("signOut")}} </a>
     </div>
     <!--end::Menu item-->
   </div>
@@ -258,13 +252,22 @@ export default defineComponent({
       return countries[i18n.locale.value as keyof typeof countries];
     });
 
+      const { t, te } = useI18n();
+      const translate = (text: string) => {
+          if (te(text)) {
+              return t(text);
+          } else {
+              return text;
+          }
+      };
     return {
       signOut,
       setLang,
       currentLanguage,
       currentLangugeLocale,
       countries,
-      getAssetPath
+      getAssetPath,
+      translate
     };
   }
 });

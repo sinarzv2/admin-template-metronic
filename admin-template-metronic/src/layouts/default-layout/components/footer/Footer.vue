@@ -13,13 +13,13 @@
       <div class="text-gray-900 order-2 order-md-1">
         <span class="text-muted fw-semibold me-1">1402©</span>
         <a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary"
-          >توسعه دهنده: سینا رضوی
+          >{{translate("developedby")}}
         </a>
       </div>
       <!--end::Copyright-->
       <!--begin::Menu-->
       <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
-        <li class="menu-item">توسعه داده شده با عشق</li>
+        <li class="menu-item">{{translate("developedWithLove")}}</li>
       </ul>
       <!--end::Menu-->
     </div>
@@ -31,14 +31,24 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { footerDisplay, footerWidthFluid } from "@/layouts/default-layout/config/helper";
+import { useI18n } from "vue-i18n";
 
 export default defineComponent({
   name: "theme-footer",
   components: {},
-  setup() {
+    setup() {
+        const { t, te } = useI18n();
+        const translate = (text: string) => {
+            if (te(text)) {
+                return t(text);
+            } else {
+                return text;
+            }
+        };
     return {
       footerWidthFluid,
-      footerDisplay
+        footerDisplay,
+        translate
     };
   }
 });
