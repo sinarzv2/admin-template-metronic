@@ -4,8 +4,14 @@ const MainMenuConfig: Array<MenuItem> = [
   {
     pages: [
       {
-        heading: "داشبورد ها",
+        heading: "dashboard",
         route: "/dashboard",
+        keenthemesIcon: "element-11",
+        bootstrapIcon: "bi-app-indicator"
+      },
+      {
+        heading: "users",
+        route: "/users",
         keenthemesIcon: "element-11",
         bootstrapIcon: "bi-app-indicator"
       }

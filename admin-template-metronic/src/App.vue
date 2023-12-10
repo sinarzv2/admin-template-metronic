@@ -65,10 +65,11 @@ export default defineComponent({
 @import "assets/keenicons/outline/style.css";
 @import "assets/keenicons/solid/style.css";
 @import "assets/sass/element-ui.dark";
+/*@import "assets/sass/plugins.scss";
+@import "assets/sass/style.scss";*/
 @import "assets/css/prismjs.bundle.rtl.css";
 @import "assets/css/plugins.bundle.rtl.css";
 @import "assets/css/style.bundle.rtl.css";
-
 
 #app {
   display: contents;

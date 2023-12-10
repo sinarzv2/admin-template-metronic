@@ -9,7 +9,7 @@
       data-bs-dismiss-="click"
       title="200+ in-house components and 3rd-party plugins"
     >
-      <span class="btn-label">راهنما</span>
+      <span class="btn-label">{{ translate("Guide") }}</span>
       <KTIcon icon-name="document" icon-class="btn-icon fs-2 m-0" />
     </a>
   </div>
@@ -19,13 +19,23 @@
 <script lang="ts">
 import { getAssetPath } from "@/core/helpers/assets";
 import { defineComponent } from "vue";
+import { useI18n } from "vue-i18n";
 
 export default defineComponent({
   name: "sidebar-footer",
   components: {},
   setup() {
+    const { t, te } = useI18n();
+    const translate = (text: string) => {
+      if (te(text)) {
+        return t(text);
+      } else {
+        return text;
+      }
+    };
     return {
-      getAssetPath
+      getAssetPath,
+      translate
     };
   }
 });

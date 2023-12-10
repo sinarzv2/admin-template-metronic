@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <!--begin::Menu-->
   <div
     class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold py-4 fs-6 w-275px"
@@ -154,6 +154,22 @@
       <!--begin::Menu sub-->
       <div class="menu-sub menu-sub-dropdown w-175px py-4">
         <!--begin::Menu item-->
+
+        <div class="menu-item px-3">
+          <a
+            @click="setLang('fa')"
+            href="#"
+            class="menu-link d-flex px-5"
+            :class="{ active: currentLanguage === 'fa' }"
+          >
+            <span class="symbol symbol-20px me-4">
+              <img class="rounded-1" :src="getAssetPath('media/flags/iran.svg')" alt="metronic" />
+            </span>
+            فارسی
+          </a>
+        </div>
+        <!--end::Menu item-->
+        <!--begin::Menu item-->
         <div class="menu-item px-3">
           <a
             @click="setLang('en')"
@@ -169,74 +185,6 @@
               />
             </span>
             English
-          </a>
-        </div>
-        <!--end::Menu item-->
-
-        <!--begin::Menu item-->
-        <div class="menu-item px-3">
-          <a
-            @click="setLang('es')"
-            href="#"
-            class="menu-link d-flex px-5"
-            :class="{ active: currentLanguage === 'es' }"
-          >
-            <span class="symbol symbol-20px me-4">
-              <img class="rounded-1" :src="getAssetPath('media/flags/spain.svg')" alt="metronic" />
-            </span>
-            Spanish
-          </a>
-        </div>
-        <!--end::Menu item-->
-
-        <!--begin::Menu item-->
-        <div class="menu-item px-3">
-          <a
-            @click="setLang('de')"
-            href="#"
-            class="menu-link d-flex px-5"
-            :class="{ active: currentLanguage === 'de' }"
-          >
-            <span class="symbol symbol-20px me-4">
-              <img
-                class="rounded-1"
-                :src="getAssetPath('media/flags/germany.svg')"
-                alt="metronic"
-              />
-            </span>
-            German
-          </a>
-        </div>
-        <!--end::Menu item-->
-
-        <!--begin::Menu item-->
-        <div class="menu-item px-3">
-          <a
-            @click="setLang('ja')"
-            href="#"
-            class="menu-link d-flex px-5"
-            :class="{ active: currentLanguage === 'ja' }"
-          >
-            <span class="symbol symbol-20px me-4">
-              <img class="rounded-1" :src="getAssetPath('media/flags/japan.svg')" alt="metronic" />
-            </span>
-            Japanese
-          </a>
-        </div>
-        <!--end::Menu item-->
-
-        <!--begin::Menu item-->
-        <div class="menu-item px-3">
-          <a
-            @click="setLang('fr')"
-            href="#"
-            class="menu-link d-flex px-5"
-            :class="{ active: currentLanguage === 'fr' }"
-          >
-            <span class="symbol symbol-20px me-4">
-              <img class="rounded-1" :src="getAssetPath('media/flags/france.svg')" alt="metronic" />
-            </span>
-            French
           </a>
         </div>
         <!--end::Menu item-->
@@ -279,28 +227,16 @@ export default defineComponent({
 
     i18n.locale.value = localStorage.getItem("lang")
       ? (localStorage.getItem("lang") as string)
-      : "en";
+      : "fa";
 
     const countries = {
       en: {
         flag: getAssetPath("media/flags/united-states.svg"),
         name: "English"
       },
-      es: {
-        flag: getAssetPath("media/flags/spain.svg"),
-        name: "Spanish"
-      },
-      de: {
-        flag: getAssetPath("media/flags/germany.svg"),
-        name: "German"
-      },
-      ja: {
-        flag: getAssetPath("media/flags/japan.svg"),
-        name: "Japanese"
-      },
-      fr: {
-        flag: getAssetPath("media/flags/france.svg"),
-        name: "French"
+      fa: {
+        flag: getAssetPath("media/flags/iran.svg"),
+        name: "فارسی"
       }
     };
 
