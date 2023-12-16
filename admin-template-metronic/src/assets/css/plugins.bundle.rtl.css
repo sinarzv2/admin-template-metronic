@@ -31074,7 +31074,7 @@ readers do not read off random characters that represent icons */
 @font-face {
   font-display: block;
   font-family: "bootstrap-icons";
-  src: url("/public/fonts/bootstrap-icons/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2") format("woff2"), url("/public/fonts/bootstrap-icons/bootstrap-icons.woff?1fa40e8900654d2863d011707b9fb6f2") format("woff");
+  src: url("/fonts/bootstrap-icons/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2") format("woff2"), url("/fonts/bootstrap-icons/bootstrap-icons.woff?1fa40e8900654d2863d011707b9fb6f2") format("woff");
 }
 .bi::before,
 [class^=bi-]::before,

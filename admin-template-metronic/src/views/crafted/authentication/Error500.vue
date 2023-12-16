@@ -6,11 +6,11 @@
       <div class="card card-flush w-lg-650px py-5">
         <div class="card-body py-15 py-lg-20">
           <!--begin::Title-->
-          <h1 class="fw-bolder fs-2qx text-gray-900 mb-4">System Error</h1>
+          <h1 class="fw-bolder fs-2qx text-gray-900 mb-4">{{translate("systemError")}}</h1>
           <!--end::Title-->
           <!--begin::Text-->
           <div class="fw-semibold fs-6 text-gray-500 mb-7">
-            Something went wrong! Please try again later.
+              {{translate("errorMessage500")}}
           </div>
           <!--end::Text-->
           <!--begin::Illustration-->
@@ -29,7 +29,7 @@
           <!--end::Illustration-->
           <!--begin::Link-->
           <div class="mb-0">
-            <router-link to="/" class="btn btn-sm btn-primary">Return Home</router-link>
+            <router-link to="/" class="btn btn-sm btn-primary">{{translate("returnHome")}}</router-link>
           </div>
           <!--end::Link-->
         </div>
@@ -46,6 +46,7 @@ import { defineComponent, onMounted } from "vue";
 import { useBodyStore } from "@/stores/body";
 import LayoutService from "@/core/services/LayoutService";
 import { themeMode } from "@/layouts/default-layout/config/helper";
+import { useI18n } from "vue-i18n";
 
 export default defineComponent({
   name: "error-500",
@@ -68,10 +69,19 @@ export default defineComponent({
       });
     });
 
+      const { t, te } = useI18n();
+      const translate = (text: string) => {
+          if (te(text)) {
+              return t(text);
+          } else {
+              return text;
+          }
+      };
     return {
       getIllustrationsPath,
       bgImage,
-      getAssetPath
+      getAssetPath,
+      translate
     };
   }
 });

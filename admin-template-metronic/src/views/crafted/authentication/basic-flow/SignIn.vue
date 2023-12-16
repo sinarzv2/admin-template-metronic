@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <!--begin::Wrapper-->
   <div class="w-lg-500px p-10">
     <!--begin::Form-->
@@ -175,8 +175,8 @@ export default defineComponent({
 
     //Create form validation object
     const login = Yup.object().shape({
-      email: Yup.string().email().required().label("Email"),
-      password: Yup.string().min(4).required().label("Password")
+      email: Yup.string().email('ایمیل به درستی وارد نشده است.').required('ایمیل را وارد کنید.').label("ایمیل"),
+      password: Yup.string().min(4,"کلمه عبور باید بیش از 4 حرف باشد.").required('کلمه عبور را وارد کنید.').label("کلمه عبور")
     });
 
     //Form submit function

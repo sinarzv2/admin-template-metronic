@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <template v-for="(item, i) in MainMenuConfig" :key="i">
     <template v-if="!item.heading">
       <template v-for="(menuItem, j) in item.pages" :key="j">
@@ -16,8 +16,8 @@
     </template>
     <div
       v-if="item.heading"
-      data-kt-menu-trigger="hover"
-      data-kt-menu-placement="bottom-start"
+      data-kt-menu-trigger="{default:'click', lg: 'hover'}"
+      data-kt-menu-placement="bottom-end"
       class="menu-item menu-lg-down-accordion me-lg-1"
     >
       <span
@@ -35,8 +35,8 @@
           <div
             v-if="menuItem.sectionTitle"
             data-kt-menu-trigger="{default:'click', lg: 'hover'}"
-            data-kt-menu-placement="right-start"
-            class="menu-item menu-lg-down-accordion"
+            data-kt-menu-placement="left-start"
+            class="menu-item menu-lg-down-accordion "
           >
             <span
               v-if="menuItem.route"

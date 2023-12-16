@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <!--begin::Header-->
   <div v-if="headerDisplay" id="kt_app_header" class="app-header">
     <!--begin::Header container-->
@@ -33,7 +33,7 @@
         <div
           class="d-flex align-items-center d-lg-none ms-n3 me-1 me-md-2"
           v-tooltip
-          title="Show sidebar menu"
+          title="مشاهده"
         >
           <div
             class="btn btn-icon btn-active-color-primary w-35px h-35px"
