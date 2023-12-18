@@ -10,10 +10,10 @@
             <!--begin::Heading-->
             <div class="text-center mb-11">
                 <!--begin::Title-->
-                <h1 class="text-dark fw-bolder mb-3">ورود</h1>
+                <h1 class="text-dark fw-bolder mb-3">{{translate("signIn")}}</h1>
                 <!--end::Title-->
                 <!--begin::Subtitle-->
-                <div class="text-gray-500 fw-semibold fs-6">کمپین های اجتماعی شما</div>
+                <div class="text-gray-500 fw-semibold fs-6">{{translate("yourSocialCampaigns")}}</div>
                 <!--end::Subtitle=-->
             </div>
             <!--begin::Heading-->
@@ -23,7 +23,7 @@
                 <div class="col-md-6">
                     <!--begin::Google link=-->
                     <a href="#" class="btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100">
-                        <img alt="Logo" :src="getAssetPath('media/svg/brand-logos/google-icon.svg')" class="h-15px me-3" />ورود با گوگل
+                        <img alt="Logo" :src="getAssetPath('media/svg/brand-logos/google-icon.svg')" class="h-15px me-3" />{{translate("continueWithGoogle")}}
                     </a>
                     <!--end::Google link=-->
                 </div>
@@ -33,7 +33,7 @@
                     <!--begin::Google link=-->
                     <a href="#" class="btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100">
                         <img alt="Logo" :src="getAssetPath('media/svg/brand-logos/apple-black.svg')" class="theme-light-show h-15px me-3" />
-                        <img alt="Logo" :src="getAssetPath('media/svg/brand-logos/apple-black-dark.svg')" class="theme-dark-show h-15px me-3" />ورود با اپل
+                        <img alt="Logo" :src="getAssetPath('media/svg/brand-logos/apple-black-dark.svg')" class="theme-dark-show h-15px me-3" />{{translate("continueWithApple")}}
                     </a>
                     <!--end::Google link=-->
                 </div>
@@ -42,7 +42,7 @@
             <!--end::Login options-->
             <!--begin::Separator-->
             <div class="separator separator-content my-14">
-                <span class="w-125px text-gray-500 fw-semibold fs-7">یا با ایمیل</span>
+                <span class="w-125px text-gray-500 fw-semibold fs-7">{{translate("orWithEmail")}}</span>
             </div>
             <!--end::Separator-->
           
@@ -50,7 +50,7 @@
             <!--begin::Input group-->
             <div class="fv-row mb-10">
                 <!--begin::Label-->
-                <label class="form-label fs-6 fw-bold text-gray-900">ایمیل</label>
+                <label class="form-label fs-6 fw-bold text-gray-900">{{translate("email")}}</label>
                 <!--end::Label-->
                 <!--begin::Input-->
                 <Field tabindex="1"
@@ -71,7 +71,7 @@
                 <!--begin::Wrapper-->
                 <div class="d-flex flex-stack mb-2">
                     <!--begin::Label-->
-                    <label class="form-label fw-bold text-gray-900 fs-6 mb-0">کلمه عبور</label>
+                    <label class="form-label fw-bold text-gray-900 fs-6 mb-0">{{translate("password")}}</label>
                     <!--end::Label-->
 
                 </div>
@@ -94,7 +94,7 @@
             <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
                 <div></div>
                 <router-link to="/password-reset" class="link-primary fs-6 ">
-                    فراموشی کلمه عبور
+                    {{translate("forgotPassword")}}
                 </router-link>
             </div>
             <!--end::Wrapper-->
@@ -106,10 +106,10 @@
                         ref="submitButton"
                         id="kt_sign_in_submit"
                         class="btn btn-lg btn-primary w-100 mb-5">
-                    <span class="indicator-label"> ورود </span>
+                    <span class="indicator-label"> {{translate("continue")}} </span>
 
                     <span class="indicator-progress">
-                        لطفا صبر کنید...
+                        {{translate("pleaseWait")}}
                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
                     </span>
                 </button>
@@ -120,8 +120,8 @@
             <!--end::ارسال button-->
             <!--begin::ثبت نام-->
             <div class="text-gray-500 text-center fw-semibold fs-6">
-                  آیا هنوز عضو نشده اید؟ 
-                <router-link to="/sign-up" class="link-primary fw-bold"> ثبت نام </router-link>
+                {{translate("newHere")}}
+                <router-link to="/sign-up" class="link-primary fw-bold"> {{translate("createAnAccount")}}</router-link>
             </div>
             <!--end::ثبت نام-->
         </VForm>
@@ -139,6 +139,7 @@ import { useAuthStore, type User } from "@/stores/auth";
 import { useRouter } from "vue-router";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import * as Yup from "yup";
+    import { useI18n } from "vue-i18n";
 
 export default defineComponent({
   name: "sign-in",
@@ -153,11 +154,16 @@ export default defineComponent({
 
     const submitButton = ref<HTMLButtonElement | null>(null);
 
-    //Create form validation object
-    const login = Yup.object().shape({
-      email: Yup.string().email('ایمیل به درستی وارد نشده است.').required('ایمیل را وارد کنید.').label("ایمیل"),
-      password: Yup.string().min(4,"کلمه عبور باید بیش از 4 حرف باشد.").required('کلمه عبور را وارد کنید.').label("کلمه عبور")
-    });
+      const { t, te } = useI18n();
+      const translate = (text: string) => {
+          if (te(text)) {
+              return t(text);
+          } else {
+              return text;
+          }
+      };
+    
+    
 
     //Form submit function
     const onSubmitLogin = async (values: any) => {
@@ -211,12 +217,25 @@ export default defineComponent({
         submitButton.value!.disabled = false;
     };
 
+
     return {
       onSubmitLogin,
-      login,
       submitButton,
-      getAssetPath
+      getAssetPath,
+      translate, t
     };
-  }
+    },
+    computed: {
+        login() {
+            //Create form validation object
+            const login =
+                Yup.object().shape({
+                    email: Yup.string().email().required(this.t('errorRequired')).label(this.translate("email")),
+                    password: Yup.string().min(4, this.t('errorMin')).required(this.t('errorRequired')).label(this.translate("password"))
+
+                });
+            return login;
+        },
+    },
 });
 </script>

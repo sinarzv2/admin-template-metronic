@@ -252,10 +252,10 @@ export default defineComponent({
       return countries[i18n.locale.value as keyof typeof countries];
     });
 
-      const { t, te } = useI18n();
+
       const translate = (text: string) => {
-          if (te(text)) {
-              return t(text);
+          if (i18n.te(text)) {
+              return i18n.t(text);
           } else {
               return text;
           }
