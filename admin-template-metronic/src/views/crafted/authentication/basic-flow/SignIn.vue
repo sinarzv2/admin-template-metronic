@@ -1,153 +1,133 @@
 ﻿<template>
   <!--begin::Wrapper-->
-  <div class="w-lg-500px p-10">
-    <!--begin::Form-->
-    <VForm
-      class="form w-100"
-      id="kt_login_signin_form"
-      @submit="onSubmitLogin"
-      :validation-schema="login"
-      :initial-values="{ email: 'admin@demo.com', password: 'demo' }"
-    >
-      <!--begin::Heading-->
-      <div class="text-center mb-10">
-        <!--begin::Title-->
-        <h1 class="text-gray-900 mb-3">Sign In</h1>
-        <!--end::Title-->
+    <div class="w-lg-500px p-10">
+        <!--begin::Form-->
+        <VForm class="form w-100"
+               id="kt_login_signin_form"
+               @submit="onSubmitLogin"
+               :validation-schema="login"
+               :initial-values="{ email: 'admin@demo.com', password: 'demo' }">
+            <!--begin::Heading-->
+            <div class="text-center mb-11">
+                <!--begin::Title-->
+                <h1 class="text-dark fw-bolder mb-3">ورود</h1>
+                <!--end::Title-->
+                <!--begin::Subtitle-->
+                <div class="text-gray-500 fw-semibold fs-6">کمپین های اجتماعی شما</div>
+                <!--end::Subtitle=-->
+            </div>
+            <!--begin::Heading-->
+            <!--begin::Login options-->
+            <div class="row g-3 mb-9">
+                <!--begin::Col-->
+                <div class="col-md-6">
+                    <!--begin::Google link=-->
+                    <a href="#" class="btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100">
+                        <img alt="Logo" :src="getAssetPath('media/svg/brand-logos/google-icon.svg')" class="h-15px me-3" />ورود با گوگل
+                    </a>
+                    <!--end::Google link=-->
+                </div>
+                <!--end::Col-->
+                <!--begin::Col-->
+                <div class="col-md-6">
+                    <!--begin::Google link=-->
+                    <a href="#" class="btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100">
+                        <img alt="Logo" :src="getAssetPath('media/svg/brand-logos/apple-black.svg')" class="theme-light-show h-15px me-3" />
+                        <img alt="Logo" :src="getAssetPath('media/svg/brand-logos/apple-black-dark.svg')" class="theme-dark-show h-15px me-3" />ورود با اپل
+                    </a>
+                    <!--end::Google link=-->
+                </div>
+                <!--end::Col-->
+            </div>
+            <!--end::Login options-->
+            <!--begin::Separator-->
+            <div class="separator separator-content my-14">
+                <span class="w-125px text-gray-500 fw-semibold fs-7">یا با ایمیل</span>
+            </div>
+            <!--end::Separator-->
+          
 
-        <!--begin::Link-->
-        <div class="text-gray-500 fw-semibold fs-4">
-          New Here?
+            <!--begin::Input group-->
+            <div class="fv-row mb-10">
+                <!--begin::Label-->
+                <label class="form-label fs-6 fw-bold text-gray-900">ایمیل</label>
+                <!--end::Label-->
+                <!--begin::Input-->
+                <Field tabindex="1"
+                       class="form-control form-control-lg form-control-solid"
+                       type="text"
+                       name="email"
+                       autocomplete="off" />
+                <!--end::Input-->
+                <div class="fv-plugins-message-container">
+                    <div class="fv-help-block">
+                        <ErrorMessage name="email" />
+                    </div>
+                </div>
+            </div>
+            <!--end::Input group-->
+            <!--begin::Input group-->
+            <div class="fv-row mb-10">
+                <!--begin::Wrapper-->
+                <div class="d-flex flex-stack mb-2">
+                    <!--begin::Label-->
+                    <label class="form-label fw-bold text-gray-900 fs-6 mb-0">کلمه عبور</label>
+                    <!--end::Label-->
 
-          <router-link to="/sign-up" class="link-primary fw-bold"> Create an Account </router-link>
-        </div>
-        <!--end::Link-->
-      </div>
-      <!--begin::Heading-->
+                </div>
+                <!--end::Wrapper-->
+                <!--begin::Input-->
+                <Field tabindex="2"
+                       class="form-control form-control-lg form-control-solid"
+                       type="password"
+                       name="password"
+                       autocomplete="off" />
+                <!--end::Input-->
+                <div class="fv-plugins-message-container">
+                    <div class="fv-help-block">
+                        <ErrorMessage name="password" />
+                    </div>
+                </div>
+            </div>
+            <!--end::Input group-->
+            <!--begin::Wrapper-->
+            <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
+                <div></div>
+                <router-link to="/password-reset" class="link-primary fs-6 ">
+                    فراموشی کلمه عبور
+                </router-link>
+            </div>
+            <!--end::Wrapper-->
+            <!--begin::ارسال button-->
+            <div class="text-center">
+                <!--begin::Submit button-->
+                <button tabindex="3"
+                        type="submit"
+                        ref="submitButton"
+                        id="kt_sign_in_submit"
+                        class="btn btn-lg btn-primary w-100 mb-5">
+                    <span class="indicator-label"> ورود </span>
 
-      <div class="mb-10 bg-light-info p-8 rounded">
-        <div class="text-info">
-          Use account <strong>admin@demo.com</strong> and password <strong>demo</strong> to
-          continue.
-        </div>
-      </div>
+                    <span class="indicator-progress">
+                        لطفا صبر کنید...
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </button>
+                <!--end::Submit button-->
+            
+               
+            </div>
+            <!--end::ارسال button-->
+            <!--begin::ثبت نام-->
+            <div class="text-gray-500 text-center fw-semibold fs-6">
+                  آیا هنوز عضو نشده اید؟ 
+                <router-link to="/sign-up" class="link-primary fw-bold"> ثبت نام </router-link>
+            </div>
+            <!--end::ثبت نام-->
+        </VForm>
+            <!--end::Form-->
 
-      <!--begin::Input group-->
-      <div class="fv-row mb-10">
-        <!--begin::Label-->
-        <label class="form-label fs-6 fw-bold text-gray-900">Email</label>
-        <!--end::Label-->
-
-        <!--begin::Input-->
-        <Field
-          tabindex="1"
-          class="form-control form-control-lg form-control-solid"
-          type="text"
-          name="email"
-          autocomplete="off"
-        />
-        <!--end::Input-->
-        <div class="fv-plugins-message-container">
-          <div class="fv-help-block">
-            <ErrorMessage name="email" />
-          </div>
-        </div>
-      </div>
-      <!--end::Input group-->
-
-      <!--begin::Input group-->
-      <div class="fv-row mb-10">
-        <!--begin::Wrapper-->
-        <div class="d-flex flex-stack mb-2">
-          <!--begin::Label-->
-          <label class="form-label fw-bold text-gray-900 fs-6 mb-0">Password</label>
-          <!--end::Label-->
-
-          <!--begin::Link-->
-          <router-link to="/password-reset" class="link-primary fs-6 fw-bold">
-            Forgot Password ?
-          </router-link>
-          <!--end::Link-->
-        </div>
-        <!--end::Wrapper-->
-
-        <!--begin::Input-->
-        <Field
-          tabindex="2"
-          class="form-control form-control-lg form-control-solid"
-          type="password"
-          name="password"
-          autocomplete="off"
-        />
-        <!--end::Input-->
-        <div class="fv-plugins-message-container">
-          <div class="fv-help-block">
-            <ErrorMessage name="password" />
-          </div>
-        </div>
-      </div>
-      <!--end::Input group-->
-
-      <!--begin::Actions-->
-      <div class="text-center">
-        <!--begin::Submit button-->
-        <button
-          tabindex="3"
-          type="submit"
-          ref="submitButton"
-          id="kt_sign_in_submit"
-          class="btn btn-lg btn-primary w-100 mb-5"
-        >
-          <span class="indicator-label"> Continue </span>
-
-          <span class="indicator-progress">
-            Please wait...
-            <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-          </span>
-        </button>
-        <!--end::Submit button-->
-
-        <!--begin::Separator-->
-        <div class="text-center text-muted text-uppercase fw-bold mb-5">or</div>
-        <!--end::Separator-->
-
-        <!--begin::Google link-->
-        <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
-          <img
-            alt="Logo"
-            :src="getAssetPath('media/svg/brand-logos/google-icon.svg')"
-            class="h-20px me-3"
-          />
-          Continue with Google
-        </a>
-        <!--end::Google link-->
-
-        <!--begin::Google link-->
-        <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
-          <img
-            alt="Logo"
-            :src="getAssetPath('media/svg/brand-logos/facebook-4.svg')"
-            class="h-20px me-3"
-          />
-          Continue with Facebook
-        </a>
-        <!--end::Google link-->
-
-        <!--begin::Google link-->
-        <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100">
-          <img
-            alt="Logo"
-            :src="getAssetPath('media/svg/brand-logos/apple-black.svg')"
-            class="h-20px me-3"
-          />
-          Continue with Apple
-        </a>
-        <!--end::Google link-->
-      </div>
-      <!--end::Actions-->
-    </VForm>
-    <!--end::Form-->
-  </div>
+    </div>
   <!--end::Wrapper-->
 </template>
 
