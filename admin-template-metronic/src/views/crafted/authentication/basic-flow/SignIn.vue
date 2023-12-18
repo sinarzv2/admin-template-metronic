@@ -230,7 +230,7 @@ export default defineComponent({
             //Create form validation object
             const login =
                 Yup.object().shape({
-                    email: Yup.string().email().required(this.t('errorRequired')).label(this.translate("email")),
+                    email: Yup.string().email(this.t('errorEmail')).required(this.t('errorRequired')).label(this.translate("email")),
                     password: Yup.string().min(4, this.t('errorMin')).required(this.t('errorRequired')).label(this.translate("password"))
 
                 });

@@ -33,7 +33,8 @@ const messages = {
     continueWithGoogle: "Continue with Google",
     continueWithApple: "Continue with Apple",
     errorRequired: "{'${path}'} is required",
-    errorMin: "{'${path}'} must be at least {'${min}'} characters"
+    errorMin: "{'${path}'} must be at least {'${min}'} characters",
+    errorEmail: "Must be a valid email"
   },
   fa: {
     dashboard: "داشبورد ها",
@@ -67,7 +68,8 @@ const messages = {
     continueWithGoogle: "ورود با گوگل",
     continueWithApple: "ورود با اپل",
     errorRequired: "{'${path}'} وارد نشده است",
-    errorMin: "{'${path}'} باید بیش از {'${min}'} حرف باشد"
+    errorMin: "{'${path}'} باید بیش از {'${min}'} حرف باشد",
+    errorEmail: "ایمیل به درستی وارد نشده است"
   }
 };
 
