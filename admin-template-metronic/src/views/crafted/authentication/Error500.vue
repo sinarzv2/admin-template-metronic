@@ -6,11 +6,11 @@
       <div class="card card-flush w-lg-650px py-5">
         <div class="card-body py-15 py-lg-20">
           <!--begin::Title-->
-          <h1 class="fw-bolder fs-2qx text-gray-900 mb-4">{{translate("systemError")}}</h1>
+          <h1 class="fw-bolder fs-2qx text-gray-900 mb-4">{{ translate("systemError") }}</h1>
           <!--end::Title-->
           <!--begin::Text-->
           <div class="fw-semibold fs-6 text-gray-500 mb-7">
-              {{translate("errorMessage500")}}
+            {{ translate("errorMessage500") }}
           </div>
           <!--end::Text-->
           <!--begin::Illustration-->
@@ -29,7 +29,9 @@
           <!--end::Illustration-->
           <!--begin::Link-->
           <div class="mb-0">
-            <router-link to="/" class="btn btn-sm btn-primary">{{translate("returnHome")}}</router-link>
+            <router-link to="/" class="btn btn-sm btn-primary">{{
+              translate("returnHome")
+            }}</router-link>
           </div>
           <!--end::Link-->
         </div>
@@ -69,14 +71,14 @@ export default defineComponent({
       });
     });
 
-      const { t, te } = useI18n();
-      const translate = (text: string) => {
-          if (te(text)) {
-              return t(text);
-          } else {
-              return text;
-          }
-      };
+    const { t, te } = useI18n();
+    const translate = (text: string) => {
+      if (te(text)) {
+        return t(text);
+      } else {
+        return text;
+      }
+    };
     return {
       getIllustrationsPath,
       bgImage,

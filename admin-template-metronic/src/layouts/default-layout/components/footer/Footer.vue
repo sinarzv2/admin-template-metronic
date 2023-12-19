@@ -13,13 +13,13 @@
       <div class="text-gray-900 order-2 order-md-1">
         <span class="text-muted fw-semibold me-1">1402©</span>
         <a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary"
-          >{{translate("developedby")}}
+          >{{ translate("developedby") }}
         </a>
       </div>
       <!--end::Copyright-->
       <!--begin::Menu-->
       <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
-        <li class="menu-item">{{translate("developedWithLove")}}</li>
+        <li class="menu-item">{{ translate("developedWithLove") }}</li>
       </ul>
       <!--end::Menu-->
     </div>
@@ -36,19 +36,19 @@ import { useI18n } from "vue-i18n";
 export default defineComponent({
   name: "theme-footer",
   components: {},
-    setup() {
-        const { t, te } = useI18n();
-        const translate = (text: string) => {
-            if (te(text)) {
-                return t(text);
-            } else {
-                return text;
-            }
-        };
+  setup() {
+    const { t, te } = useI18n();
+    const translate = (text: string) => {
+      if (te(text)) {
+        return t(text);
+      } else {
+        return text;
+      }
+    };
     return {
       footerWidthFluid,
-        footerDisplay,
-        translate
+      footerDisplay,
+      translate
     };
   }
 });

@@ -36,7 +36,7 @@
             v-if="menuItem.sectionTitle"
             data-kt-menu-trigger="{default:'click', lg: 'hover'}"
             data-kt-menu-placement="left-start"
-            class="menu-item menu-lg-down-accordion "
+            class="menu-item menu-lg-down-accordion"
           >
             <span
               v-if="menuItem.route"

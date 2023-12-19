@@ -13,7 +13,7 @@ const MainMenuConfig: Array<MenuItem> = [
   },
   {
     heading: "recruitmentSystem",
-    route: "/recruitmentSystem",
+    route: "/recruitment-system",
     pages: [
       {
         sectionTitle: "users",
@@ -22,11 +22,32 @@ const MainMenuConfig: Array<MenuItem> = [
         sub: [
           {
             heading: "createUser",
-            route: "/recruitmentSystem/user/create-user"
+            route: "/recruitment-system/user/create-user"
           },
           {
             heading: "userList",
-            route: "/recruitmentSystem/user/user-list"
+            route: "/recruitment-system/user/user-list"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    heading: "systemAffairs",
+    route: "/system-affairs",
+    pages: [
+      {
+        sectionTitle: "access",
+        route: "/access",
+        keenthemesIcon: "profile-circle",
+        sub: [
+          {
+            heading: "roleManagement",
+            route: "/system-affairs/access/role-management"
+          },
+          {
+            heading: "createAccess",
+            route: "/system-affairs/access/create-access"
           }
         ]
       }

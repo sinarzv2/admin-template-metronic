@@ -21,7 +21,7 @@ const routes: Array<RouteRecordRaw> = [
         }
       },
       {
-          path: "/recruitmentSystem/user/create-user",
+        path: "/recruitment-system/user/create-user",
         name: "createUser",
         component: () => import("@/views/user/CreateUser.vue"),
         meta: {
@@ -30,12 +30,30 @@ const routes: Array<RouteRecordRaw> = [
         }
       },
       {
-          path: "/recruitmentSystem/user/user-list",
+        path: "/recruitment-system/user/user-list",
         name: "userList",
         component: () => import("@/views/user/UserList.vue"),
         meta: {
           pageTitle: "userList",
           breadcrumbs: ["users", "userList"]
+        }
+      },
+      {
+        path: "/system-affairs/access/role-management",
+        name: "roleManagement",
+        component: () => import("@/views/access/RoleManagement.vue"),
+        meta: {
+          pageTitle: "roleManagement",
+          breadcrumbs: ["access", "roleManagement"]
+        }
+      },
+      {
+        path: "/system-affairs/access/create-access",
+        name: "createAccess",
+        component: () => import("@/views/access/CreateAccess.vue"),
+        meta: {
+          pageTitle: "createAccess",
+          breadcrumbs: ["access", "createAccess"]
         }
       }
     ]

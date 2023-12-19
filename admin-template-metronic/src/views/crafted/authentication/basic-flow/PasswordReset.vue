@@ -11,24 +11,25 @@
       <!--begin::Heading-->
       <div class="text-center mb-10">
         <!--begin::Title-->
-        <h1 class="text-gray-900 mb-3">Forgot Password ?</h1>
+        <h1 class="text-gray-900 mb-3">{{ translate("forgotPassword") }}</h1>
         <!--end::Title-->
 
         <!--begin::Link-->
-        <div class="text-gray-500 fw-semibold fs-4">Enter your email to reset your password.</div>
+        <div class="text-gray-500 fw-semibold fs-4">
+          {{ translate("enterYourEmailToResetYourPassword") }}
+        </div>
         <!--end::Link-->
       </div>
       <!--begin::Heading-->
 
       <!--begin::Input group-->
       <div class="fv-row mb-10">
-        <label class="form-label fw-bold text-gray-900 fs-6">Email</label>
         <Field
-          class="form-control form-control-solid"
-          type="email"
-          placeholder=""
+          class="form-control form-control-lg form-control-solid"
+          type="text"
           name="email"
           autocomplete="off"
+          :placeholder="translate('email')"
         />
         <div class="fv-plugins-message-container">
           <div class="fv-help-block">
@@ -46,14 +47,16 @@
           id="kt_password_reset_submit"
           class="btn btn-lg btn-primary fw-bold me-4"
         >
-          <span class="indicator-label"> Submit </span>
+          <span class="indicator-label"> {{ translate("submit") }} </span>
           <span class="indicator-progress">
-            Please wait...
+            {{ translate("pleaseWait") }}
             <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
           </span>
         </button>
 
-        <router-link to="/sign-up" class="btn btn-lg btn-light-primary fw-bold">Cancel</router-link>
+        <router-link to="/sign-up" class="btn btn-lg btn-light-primary fw-bold">{{
+          translate("cancel")
+        }}</router-link>
       </div>
       <!--end::Actions-->
     </VForm>
@@ -68,6 +71,7 @@ import { ErrorMessage, Field, Form as VForm } from "vee-validate";
 import { useAuthStore } from "@/stores/auth";
 import * as Yup from "yup";
 import Swal from "sweetalert2/dist/sweetalert2.js";
+import { useI18n } from "vue-i18n";
 
 export default defineComponent({
   name: "password-reset",
@@ -78,13 +82,15 @@ export default defineComponent({
   },
   setup() {
     const store = useAuthStore();
-
+    const { t, te } = useI18n();
+    const translate = (text: string) => {
+      if (te(text)) {
+        return t(text);
+      } else {
+        return text;
+      }
+    };
     const submitButton = ref<HTMLButtonElement | null>(null);
-
-    //Create form validation object
-    const forgotPassword = Yup.object().shape({
-      email: Yup.string().email().required().label("Email")
-    });
 
     //Form submit function
     const onSubmitForgotPassword = async (values: any) => {
@@ -103,10 +109,10 @@ export default defineComponent({
 
       if (!error) {
         Swal.fire({
-          text: "You have successfully logged in!",
+          text: translate("youHaveSuccessfullyLoggedIn"),
           icon: "success",
           buttonsStyling: false,
-          confirmButtonText: "Ok, got it!",
+          confirmButtonText: translate("okGotIt"),
           heightAuto: false,
           customClass: {
             confirmButton: "btn fw-semibold btn-light-primary"
@@ -117,7 +123,7 @@ export default defineComponent({
           text: error[0] as string,
           icon: "error",
           buttonsStyling: false,
-          confirmButtonText: "Try again!",
+          confirmButtonText: translate("tryAgain"),
           heightAuto: false,
           customClass: {
             confirmButton: "btn fw-semibold btn-light-danger"
@@ -132,9 +138,20 @@ export default defineComponent({
 
     return {
       onSubmitForgotPassword,
-      forgotPassword,
-      submitButton
+      submitButton,
+      translate
     };
+  },
+  computed: {
+    forgotPassword() {
+      //Create form validation object
+      return Yup.object().shape({
+        email: Yup.string()
+          .email(this.translate("errorEmail"))
+          .required(this.translate("errorRequired"))
+          .label(this.translate("email"))
+      });
+    }
   }
 });
 </script>

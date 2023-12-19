@@ -32,7 +32,9 @@
 
     <!--begin::Menu item-->
     <div class="menu-item px-5">
-      <router-link to="/pages/profile/overview" class="menu-link px-5"> {{translate("myProfile")}} </router-link>
+      <router-link to="/pages/profile/overview" class="menu-link px-5">
+        {{ translate("myProfile") }}
+      </router-link>
     </div>
     <!--end::Menu item-->
 
@@ -59,28 +61,28 @@
         <span class="menu-arrow"></span>
       </router-link>-->
 
-      <!--begin::Menu sub-->
-      <!--<div class="menu-sub menu-sub-dropdown w-175px py-4">-->
-        <!--begin::Menu item-->
-        <!--<div class="menu-item px-3">
+    <!--begin::Menu sub-->
+    <!--<div class="menu-sub menu-sub-dropdown w-175px py-4">-->
+    <!--begin::Menu item-->
+    <!--<div class="menu-item px-3">
           <router-link to="/pages/profile/overview" class="menu-link px-5"> Referrals </router-link>
         </div>-->
-        <!--end::Menu item-->
+    <!--end::Menu item-->
 
-        <!--begin::Menu item-->
-        <!--<div class="menu-item px-3">
+    <!--begin::Menu item-->
+    <!--<div class="menu-item px-3">
           <router-link to="/pages/profile/overview" class="menu-link px-5"> Billing </router-link>
         </div>-->
-        <!--end::Menu item-->
+    <!--end::Menu item-->
 
-        <!--begin::Menu item-->
-        <!--<div class="menu-item px-3">
+    <!--begin::Menu item-->
+    <!--<div class="menu-item px-3">
           <router-link to="/pages/profile/overview" class="menu-link px-5"> Payments </router-link>
         </div>-->
-        <!--end::Menu item-->
+    <!--end::Menu item-->
 
-        <!--begin::Menu item-->
-        <!--<div class="menu-item px-3">
+    <!--begin::Menu item-->
+    <!--<div class="menu-item px-3">
           <router-link to="/pages/profile/overview" class="menu-link d-flex flex-stack px-5">
             Statements
 
@@ -91,14 +93,14 @@
             ></i>
           </router-link>
         </div>-->
-        <!--end::Menu item-->
+    <!--end::Menu item-->
 
-        <!--begin::Menu separator-->
-        <!--<div class="separator my-2"></div>-->
-        <!--end::Menu separator-->
+    <!--begin::Menu separator-->
+    <!--<div class="separator my-2"></div>-->
+    <!--end::Menu separator-->
 
-        <!--begin::Menu item-->
-        <!--<div class="menu-item px-3">
+    <!--begin::Menu item-->
+    <!--<div class="menu-item px-3">
           <div class="menu-content px-3">
             <label class="form-check form-switch form-check-custom form-check-solid">
               <input
@@ -112,9 +114,9 @@
             </label>
           </div>
         </div>-->
-        <!--end::Menu item-->
-      <!--</div>-->
-      <!--end::Menu sub-->
+    <!--end::Menu item-->
+    <!--</div>-->
+    <!--end::Menu sub-->
     <!--</div>-->
     <!--end::Menu item-->
 
@@ -137,7 +139,7 @@
     >
       <router-link to="/pages/profile/overview" class="menu-link px-5">
         <span class="menu-title position-relative">
-          {{translate("language")}}
+          {{ translate("language") }}
           <span
             class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0"
           >
@@ -193,11 +195,9 @@
     </div>
     <!--end::Menu item-->
 
-
-
     <!--begin::Menu item-->
     <div class="menu-item px-5">
-      <a @click="signOut()" class="menu-link px-5"> {{translate("signOut")}} </a>
+      <a @click="signOut()" class="menu-link px-5"> {{ translate("signOut") }} </a>
     </div>
     <!--end::Menu item-->
   </div>
@@ -252,14 +252,13 @@ export default defineComponent({
       return countries[i18n.locale.value as keyof typeof countries];
     });
 
-
-      const translate = (text: string) => {
-          if (i18n.te(text)) {
-              return i18n.t(text);
-          } else {
-              return text;
-          }
-      };
+    const translate = (text: string) => {
+      if (i18n.te(text)) {
+        return i18n.t(text);
+      } else {
+        return text;
+      }
+    };
     return {
       signOut,
       setLang,

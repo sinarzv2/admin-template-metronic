@@ -34,11 +34,18 @@
     <div id="splash-screen" class="splash-screen">
         <img src="/media/logos/default-dark.svg" class="dark-logo" alt="Metronic dark logo" />
         <img src="/media/logos/default.svg" class="light-logo" alt="Metronic light logo" />
-        <span>Loading ...</span>
+        <span id="loading-main-page">در حال بارگزاری ...</span>
     </div>
     <!--end::Loading markup-->
 
-    <script type="module" src="/src/main.ts"></script>
+<script type="module" src="/src/main.ts"></script>
+<script>
+    let loading = document.getElementById('loading-main-page');
+    if (localStorage.lang == 'en') {
+        loading.innerText = "Loading ...";
+    }
+    
+</script>
 </body>
 
 </html>

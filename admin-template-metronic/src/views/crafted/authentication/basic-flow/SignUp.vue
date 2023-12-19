@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <!--begin::Wrapper-->
   <div class="w-lg-500px p-10">
     <!--begin::Form-->
@@ -10,115 +10,94 @@
       :validation-schema="registration"
     >
       <!--begin::Heading-->
-      <div class="mb-10 text-center">
+      <div class="text-center mb-11">
         <!--begin::Title-->
-        <h1 class="text-gray-900 mb-3">Create an Account</h1>
+        <h1 class="text-dark fw-bolder mb-3">{{ translate("signUp") }}</h1>
         <!--end::Title-->
-
-        <!--begin::Link-->
-        <div class="text-gray-500 fw-semibold fs-4">
-          Already have an account?
-
-          <router-link to="/sign-in" class="link-primary fw-bold"> Sign in here </router-link>
-        </div>
-        <!--end::Link-->
+        <!--begin::Subtitle-->
+        <div class="text-gray-500 fw-semibold fs-6">{{ translate("yourSocialCampaigns") }}</div>
+        <!--end::Subtitle=-->
       </div>
-      <!--end::Heading-->
-
-      <!--begin::Action-->
-      <button type="button" class="btn btn-light-primary fw-bold w-100 mb-10">
-        <img
-          alt="Logo"
-          :src="getAssetPath('media/svg/brand-logos/google-icon.svg')"
-          class="h-20px me-3"
-        />
-        Sign in with Google
-      </button>
-      <!--end::Action-->
-
+      <!--begin::Heading-->
+      <!--begin::Login options-->
+      <div class="row g-3 mb-9">
+        <!--begin::Col-->
+        <div class="col-md-6">
+          <!--begin::Google link=-->
+          <a
+            href="#"
+            class="btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100"
+          >
+            <img
+              alt="Logo"
+              :src="getAssetPath('media/svg/brand-logos/google-icon.svg')"
+              class="h-15px me-3"
+            />{{ translate("continueWithGoogle") }}
+          </a>
+          <!--end::Google link=-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-6">
+          <!--begin::Google link=-->
+          <a
+            href="#"
+            class="btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100"
+          >
+            <img
+              alt="Logo"
+              :src="getAssetPath('media/svg/brand-logos/apple-black.svg')"
+              class="theme-light-show h-15px me-3"
+            />
+            <img
+              alt="Logo"
+              :src="getAssetPath('media/svg/brand-logos/apple-black-dark.svg')"
+              class="theme-dark-show h-15px me-3"
+            />{{ translate("continueWithApple") }}
+          </a>
+          <!--end::Google link=-->
+        </div>
+        <!--end::Col-->
+      </div>
+      <!--end::Login options-->
       <!--begin::Separator-->
-      <div class="d-flex align-items-center mb-10">
-        <div class="border-bottom border-gray-300 mw-50 w-100"></div>
-        <span class="fw-semibold text-gray-400 fs-7 mx-2">OR</span>
-        <div class="border-bottom border-gray-300 mw-50 w-100"></div>
+      <div class="separator separator-content my-14">
+        <span class="w-125px text-gray-500 fw-semibold fs-7">{{ translate("orWithEmail") }}</span>
       </div>
       <!--end::Separator-->
-
-      <!--begin::Input group-->
-      <div class="row fv-row mb-7">
-        <!--begin::Col-->
-        <div class="col-xl-6">
-          <label class="form-label fw-bold text-gray-900 fs-6">First Name</label>
-          <Field
-            class="form-control form-control-lg form-control-solid"
-            type="text"
-            placeholder=""
-            name="first_name"
-            autocomplete="off"
-          />
-          <div class="fv-plugins-message-container">
-            <div class="fv-help-block">
-              <ErrorMessage name="first_name" />
-            </div>
-          </div>
-        </div>
-        <!--end::Col-->
-
-        <!--begin::Col-->
-        <div class="col-xl-6">
-          <label class="form-label fw-bold text-gray-900 fs-6">Last Name</label>
-          <Field
-            class="form-control form-control-lg form-control-solid"
-            type="text"
-            placeholder=""
-            name="last_name"
-            autocomplete="off"
-          />
-          <div class="fv-plugins-message-container">
-            <div class="fv-help-block">
-              <ErrorMessage name="last_name" />
-            </div>
-          </div>
-        </div>
-        <!--end::Col-->
-      </div>
-      <!--end::Input group-->
-
-      <!--begin::Input group-->
-      <div class="fv-row mb-7">
-        <label class="form-label fw-bold text-gray-900 fs-6">Email</label>
+      <!--begin::Input group=-->
+      <div class="fv-row mb-8">
+        <!--begin::Email-->
         <Field
+          tabindex="1"
           class="form-control form-control-lg form-control-solid"
-          type="email"
-          placeholder=""
+          type="text"
           name="email"
           autocomplete="off"
+          :placeholder="translate('email')"
         />
         <div class="fv-plugins-message-container">
           <div class="fv-help-block">
             <ErrorMessage name="email" />
           </div>
         </div>
+        <!--end::Email-->
       </div>
-      <!--end::Input group-->
-
       <!--begin::Input group-->
-      <div class="mb-10 fv-row" data-kt-password-meter="true">
+      <div class="fv-row mb-8" data-kt-password-meter="true">
         <!--begin::Wrapper-->
         <div class="mb-1">
-          <!--begin::Label-->
-          <label class="form-label fw-bold text-gray-900 fs-6"> Password </label>
-          <!--end::Label-->
-
           <!--begin::Input wrapper-->
           <div class="position-relative mb-3">
             <Field
+              tabindex="2"
               class="form-control form-control-lg form-control-solid"
               type="password"
-              placeholder=""
               name="password"
               autocomplete="off"
+              :placeholder="translate('password')"
             />
+
             <div class="fv-plugins-message-container">
               <div class="fv-help-block">
                 <ErrorMessage name="password" />
@@ -138,19 +117,18 @@
         <!--end::Wrapper-->
         <!--begin::Hint-->
         <div class="text-muted">
-          Use 8 or more characters with a mix of letters, numbers & symbols.
+          {{ translate("use8OrMoreCharacterSwithAMixOfLettersNumbersSymbols") }}
         </div>
         <!--end::Hint-->
       </div>
-      <!--end::Input group--->
-
-      <!--begin::Input group-->
-      <div class="fv-row mb-5">
-        <label class="form-label fw-bold text-gray-900 fs-6">Confirm Password</label>
+      <!--end::Input group=-->
+      <!--end::Input group=-->
+      <div class="fv-row mb-8">
+        <!--begin::تکرار رمز عبور-->
         <Field
           class="form-control form-control-lg form-control-solid"
           type="password"
-          placeholder=""
+          :placeholder="translate('confirmPassword')"
           name="password_confirmation"
           autocomplete="off"
         />
@@ -159,37 +137,49 @@
             <ErrorMessage name="password_confirmation" />
           </div>
         </div>
+        <!--end::تکرار رمز عبور-->
       </div>
-      <!--end::Input group-->
-
-      <!--begin::Input group-->
-      <div class="fv-row mb-10">
-        <label class="form-check form-check-custom form-check-solid">
-          <Field class="form-check-input" type="checkbox" name="toc" value="1" />
-          <span class="form-check-label fw-semibold text-gray-700 fs-6">
-            I Agree &
-            <a href="#" class="ms-1 link-primary">Terms and conditions</a>.
+      <!--end::Input group=-->
+      <!--begin::Accept-->
+      <div class="fv-row mb-8">
+        <label class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="toc" value="1" />
+          <span
+            class="form-check-label fw-semibold text-gray-700 fs-base ms-1"
+            v-html="translate('termsAndConditions')"
+          >
           </span>
         </label>
       </div>
-      <!--end::Input group-->
-
-      <!--begin::Actions-->
-      <div class="text-center">
+      <!--end::Accept-->
+      <!--begin::ارسال button-->
+      <div class="d-grid mb-10">
         <button
           id="kt_sign_up_submit"
           ref="submitButton"
           type="submit"
           class="btn btn-lg btn-primary"
         >
-          <span class="indicator-label"> Submit </span>
+          <!--begin::Indicator label-->
+          <span class="indicator-label">{{ translate("signIn") }} </span>
+          <!--end::Indicator label-->
+          <!--begin::Indicator progress-->
           <span class="indicator-progress">
-            Please wait...
+            {{ translate("pleaseWait") }}
             <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
           </span>
+          <!--end::Indicator progress-->
         </button>
       </div>
-      <!--end::Actions-->
+      <!--end::ارسال button-->
+      <!--begin::ثبت نام-->
+      <div class="text-gray-500 text-center fw-semibold fs-6">
+        {{ translate("alreadyHaveAnAccount") }}
+        <router-link to="/sign-in" class="link-primary fw-bold">
+          {{ translate("signInHere") }}
+        </router-link>
+      </div>
+      <!--end::ثبت نام-->
     </VForm>
     <!--end::Form-->
   </div>
@@ -205,6 +195,7 @@ import { useAuthStore, type User } from "@/stores/auth";
 import { useRouter } from "vue-router";
 import { PasswordMeterComponent } from "@/assets/ts/components";
 import Swal from "sweetalert2/dist/sweetalert2.js";
+import { useI18n } from "vue-i18n";
 
 export default defineComponent({
   name: "sign-up",
@@ -218,17 +209,14 @@ export default defineComponent({
     const router = useRouter();
 
     const submitButton = ref<HTMLButtonElement | null>(null);
-
-    const registration = Yup.object().shape({
-      first_name: Yup.string().required().label("Name"),
-      last_name: Yup.string().required().label("Surname"),
-      email: Yup.string().min(4).required().email().label("Email"),
-      password: Yup.string().required().label("Password"),
-      password_confirmation: Yup.string()
-        .required()
-        .oneOf([Yup.ref("password")], "Passwords must match")
-        .label("Password Confirmation")
-    });
+    const { t, te } = useI18n();
+    const translate = (text: string) => {
+      if (te(text)) {
+        return t(text);
+      } else {
+        return text;
+      }
+    };
 
     onMounted(() => {
       nextTick(() => {
@@ -243,7 +231,7 @@ export default defineComponent({
       store.logout();
 
       // eslint-disable-next-line
-      submitButton.value!.disabled = true;
+                submitButton.value!.disabled = true;
 
       // Activate indicator
       submitButton.value?.setAttribute("data-kt-indicator", "on");
@@ -255,10 +243,10 @@ export default defineComponent({
 
       if (!error) {
         Swal.fire({
-          text: "You have successfully logged in!",
+          text: translate("youHaveSuccessfullyLoggedIn"),
           icon: "success",
           buttonsStyling: false,
-          confirmButtonText: "Ok, got it!",
+          confirmButtonText: translate("okGotIt"),
           heightAuto: false,
           customClass: {
             confirmButton: "btn fw-semibold btn-light-primary"
@@ -272,7 +260,7 @@ export default defineComponent({
           text: error[0] as string,
           icon: "error",
           buttonsStyling: false,
-          confirmButtonText: "Try again!",
+          confirmButtonText: translate("tryAgain"),
           heightAuto: false,
           customClass: {
             confirmButton: "btn fw-semibold btn-light-danger"
@@ -282,15 +270,34 @@ export default defineComponent({
 
       submitButton.value?.removeAttribute("data-kt-indicator");
       // eslint-disable-next-line
-      submitButton.value!.disabled = false;
+                submitButton.value!.disabled = false;
     };
 
     return {
-      registration,
       onSubmitRegister,
       submitButton,
-      getAssetPath
+      getAssetPath,
+      translate
     };
+  },
+  computed: {
+    registration() {
+      const registration = Yup.object().shape({
+        email: Yup.string()
+          .email(this.translate("errorEmail"))
+          .required(this.translate("errorRequired"))
+          .label(this.translate("email")),
+        password: Yup.string()
+          .min(4, this.translate("errorMin"))
+          .required(this.translate("errorRequired"))
+          .label(this.translate("password")),
+        password_confirmation: Yup.string()
+          .required()
+          .oneOf([Yup.ref("password")], "Passwords must match")
+          .label("Password Confirmation")
+      });
+      return registration;
+    }
   }
 });
 </script>

@@ -15,7 +15,7 @@ export const useConfigStore = defineStore("config", () => {
   }
 
   function setLayoutConfigProperty(property: string, value: any) {
-      objectPath.set(config.value, property, value);
+    objectPath.set(config.value, property, value);
     localStorage.setItem(LS_CONFIG_NAME_KEY, JSON.stringify(config.value));
   }
 

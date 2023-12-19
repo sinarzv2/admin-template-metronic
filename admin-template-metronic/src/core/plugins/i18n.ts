@@ -26,6 +26,7 @@ const messages = {
     forgotPassword: "Forgot Password",
     continue: "Continue",
     signIn: "Sign In",
+    signUp: "Sign Up",
     newHere: "New Here?",
     createAnAccount: "Create an Account",
     orWithEmail: "Or with email",
@@ -34,7 +35,23 @@ const messages = {
     continueWithApple: "Continue with Apple",
     errorRequired: "{'${path}'} is required",
     errorMin: "{'${path}'} must be at least {'${min}'} characters",
-    errorEmail: "Must be a valid email"
+    errorEmail: "Must be a valid email",
+    youHaveSuccessfullyLoggedIn: "You have successfully logged in!",
+    okGotIt: "Ok, got it!",
+    tryAgain: "Try again!",
+    enterYourEmailToResetYourPassword: "Enter your email to reset your password.",
+    submit: "Submit",
+    cancel: "Cancel",
+    confirmPassword: "Confirm Password",
+    use8OrMoreCharacterSwithAMixOfLettersNumbersSymbols:
+      "Use 8 or more characters with a mix of letters, numbers & symbols.",
+    alreadyHaveAnAccount: "Already have an account?",
+    signInHere: "Sign in here",
+    termsAndConditions: `I Agree & <a href="#" class="ms-1 link-primary">Terms and conditions</a>.`,
+    access: "Access",
+    systemAffairs: "System affairs",
+    createAccess: "Create access",
+    roleManagement: "Role management"
   },
   fa: {
     dashboard: "داشبورد ها",
@@ -61,6 +78,7 @@ const messages = {
     forgotPassword: "فراموشی کلمه عبور",
     continue: "ورود",
     signIn: "ورود",
+    signUp: "ثبت نام",
     newHere: "آیا هنوز عضو نشده اید؟",
     createAnAccount: "ثبت نام",
     orWithEmail: "یا با ایمیل",
@@ -69,12 +87,29 @@ const messages = {
     continueWithApple: "ورود با اپل",
     errorRequired: "{'${path}'} وارد نشده است",
     errorMin: "{'${path}'} باید بیش از {'${min}'} حرف باشد",
-    errorEmail: "ایمیل به درستی وارد نشده است"
+    errorEmail: "ایمیل به درستی وارد نشده است",
+    youHaveSuccessfullyLoggedIn: "شما با موفقیت وارد شدید!",
+    okGotIt: "باشه فهمیدم!",
+    tryAgain: "دوباره امتحان کنید!",
+    enterYourEmailToResetYourPassword: "ایمیل تان را وارد کنید تا پسوردتان ریست شود.",
+    submit: "ارسال",
+    cancel: "بی خیال",
+    confirmPassword: "تکرار کلمه عبور",
+    use8OrMoreCharacterSwithAMixOfLettersNumbersSymbols:
+      "از 8 یا بیشتر کاراکتر با ترکیبی از حروف، اعداد و نمادها استفاده کنید.",
+    alreadyHaveAnAccount: "از قبل یک حساب دارید؟",
+    signInHere: "وارد شوید",
+    termsAndConditions: `من <a href="#" class="ms-1 link-primary"> قوانین و مقررات </a> را قبول میکنم.`,
+    access: "دسترسی ها",
+    systemAffairs: "امور سیستم",
+    createAccess: "ایجاد دسترسی",
+    roleManagement: "مدیریت گروه"
   }
 };
 
 const i18n = createI18n({
   legacy: false,
+  warnHtmlMessage: false,
   locale: localStorage.lang,
   globalInjection: true,
   escapeValue: false,
