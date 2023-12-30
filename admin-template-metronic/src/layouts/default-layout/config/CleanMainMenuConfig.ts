@@ -39,7 +39,7 @@ const MainMenuConfig: Array<MenuItem> = [
       {
         sectionTitle: "access",
         route: "/access",
-        keenthemesIcon: "profile-circle",
+        keenthemesIcon: "pill",
         sub: [
           {
             heading: "roleManagement",
